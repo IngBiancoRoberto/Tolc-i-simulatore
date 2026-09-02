@@ -1,0 +1,912 @@
+{
+  "test_info": {
+    "titolo": "Fisica Facile - Simulazione TOLC-I",
+    "punteggio_corretta": 1.0,
+    "punteggio_sbagliata": -0.25,
+    "punteggio_omessa": 0.0
+  },
+  "fasce_punteggio": [
+    {
+      "punteggio_min": null,
+      "punteggio_max": 15,
+      "posizionamento": "Sotto media",
+      "consiglio": "Rischio elevato di OFA. È necessario rivedere i moduli teorici base"
+    },
+    {
+      "punteggio_min": 15,
+      "punteggio_max": 25,
+      "posizionamento": "Fascia media",
+      "consiglio": "Sei sulla buona strada per l'immatricolazione, ma occorre ottimizzare"
+    },
+    {
+      "punteggio_min": 25,
+      "punteggio_max": null,
+      "posizionamento": "Fascia alta",
+      "consiglio": "Preparazione solida. I distrattori principali sono stati superati; la priorità ora è azzerare le risposte errate per scalare le graduatorie negli atenei più selettivi."
+    }
+  ],
+  "sezioni": [
+    {
+      "nome": "Matematica",
+      "tempo_minuti": 50,
+      "quesiti": [
+        {
+          "id": "MAT_01",
+          "testo": "Per $0 \\le x \\le \\pi$, l'equazione $\\cos(x) = 3 - 2k$ ammette almeno una soluzione se e solo se:",
+          "immagine_url": null,
+          "opzioni": [
+            "$-1 \\le k \\le 1$",
+            "$k \\ge 1$",
+            "$k \\le 3$",
+            "$0 \\le k \\le 2$",
+            "$1 \\le k \\le 2$"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Trigonometria",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_02",
+          "testo": "Il resto della divisione del polinomio $P(x) = 2x^4 - x^3 + 5$ per il binomio $x + 2$ è:",
+          "immagine_url": null,
+          "opzioni": [
+            "37",
+            "13",
+            "29",
+            "21",
+            "45"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Equazioni, disequazioni e algebra fondamentale",
+          "trappole": {
+            "2": "Hai calcolato $P(2)$ anziché $P(-2)$: per il teorema del resto, il resto della divisione per $x+2$ è $P(-2)$."
+          }
+        },
+        {
+          "id": "MAT_03",
+          "testo": "Sia $T$ un triangolo rettangolo con un angolo acuto di $30°$. Se l'ipotenusa misura $2$ cm, qual è la somma dei seni dei tre angoli interni di $T$?",
+          "immagine_url": null,
+          "opzioni": [
+            "$3/2$",
+            "$(3 + \\sqrt{3})/2$",
+            "$(1 + \\sqrt{3})/2$",
+            "2",
+            "$1 + \\sqrt{3}$"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Trigonometria",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_04",
+          "testo": "L'equazione $x + \\frac{4}{x} = k$, con $x$ reale non nullo, ammette due soluzioni reali e coincidenti (ovvero una sola soluzione distinta) se e solo se:",
+          "immagine_url": null,
+          "opzioni": [
+            "k = 2",
+            "k = 0",
+            "k = 4",
+            "per nessun valore di k",
+            "k = 4 oppure k = -4"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Equazioni, disequazioni e algebra fondamentale",
+          "trappole": {
+            "2": "Hai considerato solo la soluzione positiva $k=4$, dimenticando che anche $k=-4$ annulla il discriminante perché l'equazione $k^2-16=0$ ha come soluzioni $\\pm4$)."
+          }
+        },
+        {
+          "id": "MAT_05",
+          "testo": "Nel piano cartesiano $Oxy$, l'equazione $x^2 + y^2 - 6y = \\lambda$, con $\\lambda$ reale tale che $\\lambda + 9 > 0$, rappresenta:",
+          "immagine_url": null,
+          "opzioni": [
+            "Una parabola con asse verticale",
+            "Una circonferenza di centro $(0, 3)$ e raggio $\\sqrt{\\lambda - 9}$",
+            "Una circonferenza di centro $(0, -3)$ e raggio $\\sqrt{\\lambda}$",
+            "Una circonferenza di centro $(0, 3)$ e raggio $\\sqrt{\\lambda + 9}$",
+            "Una circonferenza di centro $(3, 0)$ e raggio $\\sqrt{\\lambda + 9}$"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Geometria analitica nel piano cartesiano",
+          "trappole": {
+            "4": "Hai scambiato le coordinate del centro: l'equazione contiene il termine in y, non in x, quindi il centro è (0, 3) e non (3, 0).",
+            "0": "Hai frainteso la struttura dell'equazione (di secondo grado in entrambe le variabili) scambiandola per quella di una parabola, che ha invece una sola variabile al quadrato."
+          }
+        },
+        {
+          "id": "MAT_06",
+          "testo": "Dato un numero reale positivo $x$ e posto $f(x) = \\log_2(x)$, si ha che $f(8 \\cdot x^{-3})$ è uguale a:",
+          "immagine_url": null,
+          "opzioni": [
+            "3 + 3f(x)",
+            "$3/f(x)^3$",
+            "3 - 3f(x)",
+            "8 - 3f(x)",
+            "-3f(x)"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Funzioni esponenziali e logaritmiche",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_07",
+          "testo": "Un semicerchio di raggio $R = 3$ cm viene fatto ruotare di $360°$ attorno al suo diametro. Il volume del solido ottenuto è:",
+          "immagine_url": null,
+          "opzioni": [
+            "$36\\pi$ cm³",
+            "$27\\pi$ cm³",
+            "$12\\pi$ cm³",
+            "$9\\pi$ cm³",
+            "$18\\pi$ cm³"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Geometria euclidea piana e solida",
+          "trappole": {
+            "2": "Hai usato $R^2$ anziché $R^3$ nella formula del volume della sfera $\\left(\\frac{4}{3}\\pi R^3\\right)$, dimenticando l'esponente corretto.",
+            "3": "Hai calcolato l'area del cerchio ($\\pi R^2$) invece del volume del solido di rotazione."
+          }
+        },
+        {
+          "id": "MAT_08",
+          "testo": "Nel piano cartesiano, l'asse del segmento di estremi $A(1, 2)$ e $B(3, 4)$ ha equazione:",
+          "immagine_url": null,
+          "opzioni": [
+            "y = x",
+            "y = -x + 5",
+            "y = x + 1",
+            "y = -x + 6",
+            "y = -2x + 7"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Geometria analitica nel piano cartesiano",
+          "trappole": {
+            "2": "Hai calcolato l'equazione della retta AB stessa, non del suo asse (la retta perpendicolare per il punto medio)."
+          }
+        },
+        {
+          "id": "MAT_09",
+          "testo": "Il numero $(\\sqrt{27} \\cdot 3)^{1/2}$ è uguale a:",
+          "immagine_url": null,
+          "opzioni": [
+            "3",
+            "$3^{3/2}$",
+            "$3^{5/4}$",
+            "$\\sqrt{3}$",
+            "$3^{3/4}$"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Funzioni esponenziali e logaritmiche",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_10",
+          "testo": "Sia Q un quadrato di lato L. Il rapporto tra l'area del cerchio inscritto in Q e l'area del cerchio circoscritto a Q vale:",
+          "immagine_url": null,
+          "opzioni": [
+            "2",
+            "$\\sqrt{2}/2$",
+            "1/4",
+            "1/2",
+            "varia al variare di L"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Geometria euclidea piana e solida",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_11",
+          "testo": "Sia T un triangolo equilatero di lato L = 4 cm. Se si congiungono i punti medi dei tre lati, si ottengono quattro triangoli equilateri più piccoli. Qual è l'area di ciascuno di questi triangoli minori?",
+          "immagine_url": null,
+          "opzioni": [
+            "$\\sqrt{3}/2$ cm²",
+            "$2\\sqrt{3}$ cm²",
+            "$\\sqrt{3}$ cm²",
+            "$4\\sqrt{3}$ cm²",
+            "1 cm²"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Geometria euclidea piana e solida",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_12",
+          "testo": "In un negozio, il prezzo di un articolo viene scontato del 20%. Dopo una settimana, sul prezzo già scontato viene applicato un ulteriore sconto del 10%. Qual è lo sconto complessivo percentuale applicato al prezzo iniziale dell'articolo?",
+          "immagine_url": null,
+          "opzioni": [
+            "18%",
+            "72%",
+            "28%",
+            "30%",
+            "25%"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Percentuali e frazioni",
+          "trappole": {
+            "3": "Hai sommato semplicemente le due percentuali di sconto (20% + 10% = 30%), ma sconti successivi non si sommano direttamente: il secondo sconto si applica al prezzo già scontato, non a quello iniziale."
+          }
+        },
+        {
+          "id": "MAT_13",
+          "testo": "Nel piano cartesiano, il luogo dei punti di coordinate $(x, y)$ che verificano l'equazione $(x^2 - 1)(y - x^2) = 0$ è:",
+          "immagine_url": null,
+          "opzioni": [
+            "L'unione di due rette verticali e una parabola",
+            "L'intersezione di una retta e una parabola",
+            "Una circonferenza e una retta",
+            "Due punti distinti",
+            "Un'iperbole e due rette"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Geometria analitica nel piano cartesiano",
+          "trappole": {
+            "1": "Hai interpretato il prodotto nullo come un'intersezione anziché come un'unione: quando un prodotto di fattori è zero basta che UNO dei due fattori sia nullo, quindi la soluzione è l'unione, non l'intersezione, delle due condizioni $x^2-1=0$ e $y-x^2=0$. Inoltre $x^2-1=0$ dà due rette, non una sola."
+          }
+        },
+        {
+          "id": "MAT_14",
+          "testo": "Siano a, b, c tre numeri interi positivi, tutti diversi tra loro e minori di 5. Sapendo che la loro somma è pari a 9, quanto vale il loro prodotto?",
+          "immagine_url": null,
+          "opzioni": [
+            "18",
+            "12",
+            "15",
+            "24",
+            "20"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Equazioni, disequazioni e algebra fondamentale",
+          "trappole": {}
+        },
+        {
+          "id": "MAT_15",
+          "testo": "Quante sono le soluzioni reali dell'equazione $\\cos(3x) = 2$?",
+          "immagine_url": null,
+          "opzioni": [
+            "Tre",
+            "Sei",
+            "Una",
+            "Nessuna",
+            "Infinite"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Trigonometria",
+          "trappole": {
+            "2": "Hai provato a risolvere l'equazione come se il coseno potesse assumere il valore 2, ma il codominio del coseno è $[-1,1]$: l'equazione non ammette alcuna soluzione reale."
+          }
+        },
+        {
+          "id": "MAT_16",
+          "testo": "Un triangolo rettangolo con cateti di lunghezze $a$ e $b$ genera due coni di rotazione: il primo ($C_1$) facendo ruotare il triangolo di $360°$ attorno al cateto $a$, il secondo ($C_2$) facendolo ruotare attorno al cateto $b$. Il rapporto tra il volume di $C_1$ e il volume di $C_2$ è pari a:",
+          "immagine_url": null,
+          "opzioni": [
+            "$b^2/a^2$",
+            "$a^2/b^2$",
+            "1",
+            "b/a",
+            "a/b"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Geometria euclidea piana e solida",
+          "trappole": {
+            "2": "Hai assunto che i due volumi siano uguali per una presunta simmetria, ma cambiando l'asse di rotazione cambiano sia il raggio sia l'altezza dei coni generati, quindi i volumi risultano diversi a meno che a=b."
+          }
+        },
+        {
+          "id": "MAT_17",
+          "testo": "Per quale dei seguenti valori di x si ha che $\\sin(2x) = 2\\sin(x)$?",
+          "immagine_url": null,
+          "opzioni": [
+            "Per nessun valore reale di x",
+            "$x = \\pi$",
+            "$x = \\pi/2$",
+            "$x = \\pi/4$",
+            "$x = \\pi/3$"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Trigonometria",
+          "trappole": {
+            "0": "Hai forse considerato solo la soluzione $\\cos(x)=1$ (cioè $x=0$), dimenticando il secondo ramo $\\sin(x)=0$, che include anche $x=\\pi$ tra i valori elencati."
+          }
+        },
+        {
+          "id": "MAT_18",
+          "testo": "L'equazione $|2x - 4| = 4 - 2x$ è verificata:",
+          "immagine_url": null,
+          "opzioni": [
+            "Solo per x = 2",
+            "Per ogni x reale",
+            "Per nessun valore di x",
+            "Per ogni x ≤ 2",
+            "Per ogni x ≥ 2"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Equazioni, disequazioni e algebra fondamentale",
+          "trappole": {
+            "1": "Hai trattato l'equazione come se valesse sempre, dimenticando che $|A|=-A$ è vero solo quando $A\\le 0$."
+          }
+        },
+        {
+          "id": "MAT_19",
+          "testo": "Nel piano cartesiano $Oxy$, la condizione $x \\cdot y > 0$ individua:",
+          "immagine_url": null,
+          "opzioni": [
+            "Solo i punti del primo quadrante",
+            "Tutti i punti degli assi coordinati",
+            "Solo i punti appartenenti al secondo e quarto quadrante",
+            "Tutti i punti del piano cartesiano tranne l'origine",
+            "Tutti i punti del primo e del terzo quadrante (esclusi gli assi)"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Geometria analitica nel piano cartesiano",
+          "trappole": {
+            "0": "Hai considerato solo il caso in cui entrambe le coordinate sono positive (primo quadrante), dimenticando che anche quando sono entrambe negative il prodotto xy è comunque positivo (terzo quadrante)."
+          }
+        },
+        {
+          "id": "MAT_20",
+          "testo": "Un'associazione studentesca composta da 5 membri deve scegliere un comitato direttivo formato da un Presidente e un Segretario (cariche distinte e non cumulabili). In quanti modi diversi si può formare questo comitato?",
+          "immagine_url": null,
+          "opzioni": [
+            "20",
+            "120",
+            "25",
+            "5",
+            "10"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Calcolo combinatorio",
+          "trappole": {
+            "4": "Hai calcolato il numero di modi di scegliere 2 persone tra 5 senza distinguere i ruoli (combinazioni, $\\binom{5}{2}=10$), ma Presidente e Segretario sono cariche distinte: l'ordine conta, quindi serve la disposizione $5\\times4=20$."
+          }
+        }
+      ]
+    },
+    {
+      "nome": "Scienze (Fisica e Chimica)",
+      "tempo_minuti": 20,
+      "quesiti": [
+        {
+          "id": "FIS_01",
+          "testo": "Un ghepardo parte da fermo con accelerazione costante di $4\\text{ m/s}^2$ all'inseguimento di una gazzella che corre a velocità costante di $12\\text{ m/s}$ lungo una traiettoria rettilinea. Se il ghepardo parte esattamente nello stesso istante in cui la gazzella lo supera, dopo quanto tempo riuscirà a raggiungerla?",
+          "immagine_url": null,
+          "opzioni": [
+            "12 s",
+            "3 s",
+            "4 s",
+            "6 s",
+            "8 s"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Meccanica",
+          "trappole": {
+            "2": "Hai probabilmente diviso la velocità della gazzella per l'accelerazione ($12/4=4$) senza impostare correttamente l'uguaglianza tra le due leggi orarie $\\frac{1}{2}at^2 = vt$, che porta invece a $t=2v/a=6\\text{ s}$."
+          }
+        },
+        {
+          "id": "FIS_02",
+          "testo": "Due sfere solide $A$ e $B$ hanno lo stesso identico raggio. La sfera $A$ è di alluminio (densità $2{,}7\\text{ g/cm}^3$) e la sfera $B$ è di piombo (densità $11{,}3\\text{ g/cm}^3$). Entrambe le sfere vengono immerse completamente in un recipiente colmo d'olio. Quale relazione intercorre tra le spinte di Archimede $S_A$ e $S_B$ subite dalle due sfere?",
+          "immagine_url": null,
+          "opzioni": [
+            "L'alluminio è più leggero e risente meno della forza di gravità, quindi $S_A > S_B$",
+            "Il piombo sposta più liquido a parità di volume immerso, quindi $S_B > S_A$",
+            "$S_A = S_B$ perché le due sfere hanno lo stesso volume",
+            "La relazione tra le spinte dipende unicamente dalla profondità alla quale si trovano le sfere",
+            "$S_B \\approx 4{,}2\\, S_A$ perché il piombo ha una densità molto superiore"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Meccanica",
+          "trappole": {
+            "4": "Hai pensato che la spinta di Archimede dipenda dalla densità dell'oggetto immerso, ma la legge di Archimede ($S=\\rho_{liquido}\\, g\\, V_{immerso}$) dipende solo dalla densità del LIQUIDO spostato e dal volume immerso, non dal materiale della sfera: a parità di raggio (quindi di volume), la spinta è identica.",
+            "1": "Errore concettuale molto comune: si pensa che un oggetto più denso 'sposti più liquido', ma a parità di raggio le due sfere hanno esattamente lo stesso volume, quindi spostano la stessa quantità di olio."
+          }
+        },
+        {
+          "id": "FIS_03",
+          "testo": "Un gas ideale si trova inizialmente alla temperatura di $27^\\circ\\text{C}$ all'interno di un contenitore deformabile. Se il gas viene riscaldato a pressione costante (trasformazione isobarica) fino a raddoppiare il suo volume originario, quale temperatura finale avrà raggiunto?",
+          "immagine_url": null,
+          "opzioni": [
+            "$327^\\circ\\text{C}$",
+            "$300^\\circ\\text{C}$",
+            "$54^\\circ\\text{C}$",
+            "$127^\\circ\\text{C}$",
+            "$600^\\circ\\text{C}$"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Termodinamica",
+          "trappole": {
+            "2": "Errore molto frequente: hai raddoppiato direttamente la temperatura in gradi Celsius ($27^\\circ\\text{C} \\times 2 = 54^\\circ\\text{C}$). La legge $V \\propto T$ vale solo con la temperatura assoluta (Kelvin): bisogna prima convertire $27^\\circ\\text{C}=300\\text{ K}$, raddoppiare a $600\\text{ K}$, e solo alla fine riconvertire in Celsius ($327^\\circ\\text{C}$).",
+            "4": "Hai calcolato correttamente la temperatura assoluta finale ($600\\text{ K}$), ma hai dimenticato di riconvertirla in gradi Celsius, riportando il valore in Kelvin come se fosse già in Celsius."
+          }
+        },
+        {
+          "id": "FIS_04",
+          "testo": "Una bacchetta di plastica carica negativamente viene avvicinata, senza che vi sia contatto fisico, a una sfera conduttrice isolata ed elettricamente neutra. Cosa si osserva dal punto di vista elettrostatico?",
+          "immagine_url": null,
+          "opzioni": [
+            "La sfera viene respinta dalla bacchetta a causa del fenomeno dell'induzione",
+            "La sfera viene attratta dalla bacchetta a causa dell'induzione elettrostatica",
+            "Non si osserva alcuna interazione poiché la sfera conduttrice è neutra",
+            "Si genera un flusso continuo di elettroni che si disperde nell'aria circostante",
+            "La sfera si carica istantaneamente e in modo permanente di segno negativo"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Elettromagnetismo",
+          "trappole": {
+            "2": "Errore concettuale molto diffuso: si pensa che un oggetto neutro non possa interagire elettricamente. In realtà la carica avvicinata induce una separazione delle cariche nel conduttore (induzione elettrostatica), generando un'attrazione netta anche senza contatto.",
+            "0": "Hai applicato meccanicamente la regola 'cariche dello stesso segno si respingono', ma qui la sfera è neutra, non carica negativamente: l'induzione fa avvicinare le cariche positive del conduttore verso la bacchetta, producendo attrazione, non repulsione."
+          }
+        },
+        {
+          "id": "FIS_05",
+          "testo": "Un raggio di luce monocromatica passa dall'acqua (indice di rifrazione $n_1 = 1{,}33$) al vetro (indice di rifrazione $n_2 = 1{,}5$). Come variano la velocità $v$ e la frequenza $f$ della luce nel passaggio tra i due mezzi?",
+          "immagine_url": null,
+          "opzioni": [
+            "$v$ aumenta e $f$ rimane costante",
+            "$v$ diminuisce e $f$ rimane costante",
+            "Sia $v$ sia $f$ rimangono costanti",
+            "Sia $v$ sia $f$ aumentano",
+            "$v$ diminuisce e $f$ aumenta"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Ottica e Fenomeni Ondulatori",
+          "trappole": {
+            "4": "Trappola molto classica: si pensa che, diminuendo la velocità $v=c/n$, la frequenza debba aumentare per 'compensare'. In realtà è la lunghezza d'onda a variare per compensare la velocità ($v=\\lambda f$): la frequenza è invece fissata dalla sorgente e resta rigorosamente costante attraversando i mezzi."
+          }
+        },
+        {
+          "id": "FIS_06",
+          "testo": "In un calorimetro ideale vengono mescolati $2\\text{ kg}$ di acqua alla temperatura di $80^\\circ\\text{C}$ con $3\\text{ kg}$ di acqua a $20^\\circ\\text{C}$. Trascurando la capacità termica del calorimetro e ogni scambio di calore con l'esterno, qual è la temperatura di equilibrio della miscela?",
+          "immagine_url": null,
+          "opzioni": [
+            "$40^\\circ\\text{C}$",
+            "$56^\\circ\\text{C}$",
+            "$32^\\circ\\text{C}$",
+            "$50^\\circ\\text{C}$",
+            "$44^\\circ\\text{C}$"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Termodinamica",
+          "trappole": {
+            "3": "Errore molto comune: hai calcolato la semplice media aritmetica delle due temperature ($(80+20)/2=50^\\circ\\text{C}$), ignorando che le due masse d'acqua sono diverse. La temperatura di equilibrio è una media pesata sulle masse: $T_{eq}=\\frac{m_1 T_1+m_2 T_2}{m_1+m_2}=44^\\circ\\text{C}$."
+          }
+        },
+        {
+          "id": "FIS_07",
+          "testo": "Siano dati due vettori non nulli $\\vec{a}$ e $\\vec{b}$ i cui moduli sono rispettivamente pari a $6$ e $8$. Qual è il valore massimo possibile che può assumere il modulo del vettore somma $\\vec{s} = \\vec{a} + \\vec{b}$?",
+          "immagine_url": null,
+          "opzioni": [
+            "2",
+            "48",
+            "100",
+            "14",
+            "10"
+          ],
+          "indice_corretto": 3,
+          "argomento": "Meccanica (Calcolo vettoriale: algebra dei vettori)",
+          "trappole": {
+            "4": "Trappola classica: hai applicato automaticamente il teorema di Pitagora ($\\sqrt{6^2+8^2}=10$), che vale solo se i due vettori sono perpendicolari. Il modulo della somma è invece MASSIMO quando i vettori sono paralleli e concordi: $|\\vec{s}|_{max}=6+8=14$.",
+            "0": "Hai calcolato il modulo MINIMO della somma (vettori opposti, $|8-6|=2$) invece del valore massimo richiesto dal testo, che si ottiene con vettori concordi."
+          }
+        },
+        {
+          "id": "FIS_08",
+          "testo": "Un atomo neutro di un certo elemento chimico possiede 17 protoni nel suo nucleo, 17 elettroni e 18 neutroni. Qual è il suo numero di massa (A)?",
+          "immagine_url": null,
+          "opzioni": [
+            "17",
+            "+1",
+            "35",
+            "34",
+            "18"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Chimica generale (Struttura atomica e particelle subatomiche)",
+          "trappole": {
+            "0": "Confusione molto frequente tra numero atomico Z (numero di protoni, in questo caso 17) e numero di massa A (protoni + neutroni = 35): il numero di massa non è il numero di protoni.",
+            "4": "Hai riportato solo il numero di neutroni (18), dimenticando che il numero di massa è la SOMMA di protoni e neutroni, non uno dei due soltanto."
+          }
+        },
+        {
+          "id": "FIS_09",
+          "testo": "Due resistori di resistenza $R_1 = 4\\ \\Omega$ e $R_2 = 12\\ \\Omega$ sono collegati in parallelo tra loro. Questo gruppo è collegato in serie con un terzo resistore $R_3 = 5\\ \\Omega$. Se il circuito è alimentato da un generatore di tensione ideale da $24\\text{ V}$, qual è l'intensità della corrente totale erogata?",
+          "immagine_url": null,
+          "opzioni": [
+            "$1{,}5\\text{ A}$",
+            "$3\\text{ A}$",
+            "$2\\text{ A}$",
+            "$4\\text{ A}$",
+            "$8\\text{ A}$"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Elettromagnetismo (Circuiti elettrici: resistenze in serie/parallelo e legge di Ohm)",
+          "trappole": {
+            "4": "Hai calcolato correttamente la resistenza equivalente del parallelo ($R_p=\\frac{4\\times12}{4+12}=3\\ \\Omega$), ma hai dimenticato di sommarci in serie $R_3=5\\ \\Omega$: usando solo $R_p$ ottieni $I=24/3=8\\text{ A}$ invece del valore corretto $I=24/(3+5)=3\\text{ A}$."
+          }
+        },
+        {
+          "id": "FIS_10",
+          "testo": "Quale dei seguenti fenomeni quotidiani corrisponde esclusivamente a una trasformazione fisica (passaggio di stato) e non coinvolge alcuna reazione chimica?",
+          "immagine_url": null,
+          "opzioni": [
+            "La formazione della brina mattutina sulle foglie durante una notte fredda",
+            "L'elettrolisi dell'acqua per produrre idrogeno e ossigeno gassosi",
+            "La cottura di un uovo in acqua bollente",
+            "La formazione di ruggine su un chiodo di ferro esposto all'umidità",
+            "La combustione completa del metano nei fornelli di cucina"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Chimica generale (Stati della materia e distinzione tra fenomeni fisici e chimici)",
+          "trappole": {
+            "2": "Trappola classicissima: si pensa che cuocere un uovo sia solo un cambiamento fisico dovuto al calore, ma in realtà è una trasformazione chimica (denaturazione delle proteine, che formano nuovi legami in modo irreversibile), non un semplice passaggio di stato.",
+            "3": "Hai forse pensato alla ruggine come a un semplice deterioramento superficiale del metallo, ma la formazione di ruggine è una vera e propria reazione chimica di ossidazione del ferro, non una trasformazione fisica."
+          }
+        }
+      ]
+    },
+    {
+      "nome": "Logica",
+      "tempo_minuti": 20,
+      "quesiti": [
+        {
+          "id": "LOG_01",
+          "testo": "Volendo disporre le lettere A, E, I, B, C, D (di cui A, E, I sono vocali e B, C, D sono consonanti) in sei posizioni numerate da 1 a 6 in modo che le vocali occupino le posizioni dispari (1, 3, 5) e le consonanti le posizioni pari (2, 4, 6), in quanti modi diversi si può operare?",
+          "immagine_url": null,
+          "opzioni": [
+            "24",
+            "12",
+            "36",
+            "6",
+            "720"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Logica combinatoria",
+          "trappole": {
+            "4": "Hai calcolato tutte le permutazioni possibili delle 6 lettere (6! = 720) senza applicare il vincolo che vocali e consonanti devono occupare posizioni specifiche.",
+            "3": "Hai calcolato le disposizioni possibili di un solo gruppo di lettere (es. solo le vocali, 3! = 6), dimenticando di moltiplicare per le disposizioni possibili dell'altro gruppo (le consonanti)."
+          }
+        },
+        {
+          "id": "LOG_02",
+          "testo": "Nel regolamento di una biblioteca è appeso il seguente avviso: 'È consentito prendere in prestito fino a 3 libri contemporaneamente, tranne nei mesi di luglio e agosto e nei giorni festivi.' Se ne può dedurre che in quella biblioteca:",
+          "immagine_url": null,
+          "opzioni": [
+            "non è vietato prendere in prestito libri la domenica a settembre",
+            "non è vietato prendere in prestito 2 libri contemporaneamente a maggio, purché non sia un giorno festivo",
+            "nei mesi di luglio e agosto è vietato non prendere in prestito libri nei giorni feriali",
+            "non è vietato prendere in prestito 3 libri contemporaneamente a luglio, purché non sia un giorno festivo",
+            "non è vietato prendere in prestito libri nei giorni festivi di giugno, purché siano meno di 3"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Logica matematica e problem solving",
+          "trappole": {
+            "4": "Hai assunto che, se il permesso dei 3 libri non si applica nei giorni festivi, allora un numero minore di libri sia comunque permesso — ma il testo non fornisce questa informazione: potrebbe benissimo essere vietato ogni prestito nei giorni festivi."
+          }
+        },
+        {
+          "id": "LOG_03",
+          "testo": "Con quale coppia di numeri continuereste la seguente successione di interi? $2,3;\\ \\ 3,5;\\ \\ 6,9;\\ \\ 11,15;\\ \\ 18,23;\\ \\ 27,33;\\ \\ \\dots,\\dots$",
+          "immagine_url": null,
+          "opzioni": [
+            "38, 43",
+            "36, 42",
+            "37, 44",
+            "39, 45",
+            "38, 45"
+          ],
+          "indice_corretto": 4,
+          "argomento": "Logica sequenziale",
+          "trappole": {
+            "0": "Hai calcolato correttamente il primo elemento della coppia (38) ma hai sbagliato la differenza interna alla coppia, che deve essere 7 (la sequenza delle differenze interne è 1,2,3,4,5,6,7,...), ottenendo 43 anziché 45.",
+            "3": "Hai calcolato correttamente il secondo elemento della coppia (45) ma hai sbagliato la progressione dei PRIMI elementi delle coppie (le cui differenze crescono di 2 in 2: 1,3,5,7,9,11,...), ottenendo 39 anziché 38."
+          }
+        },
+        {
+          "id": "LOG_04",
+          "testo": "La combinazione di un lucchetto è formata da quattro cifre distinte tra 0 e 9. Il proprietario ricorda solo che: non vi compare la cifra 3; la seconda cifra è il triplo della prima; le cifre sono in ordine crescente dalla prima all'ultima. Qual è il minimo numero di tentativi che il proprietario deve fare per essere sicuro di aprire il lucchetto?",
+          "immagine_url": null,
+          "opzioni": [
+            "5",
+            "3",
+            "4",
+            "6",
+            "2"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Logica combinatoria",
+          "trappole": {
+            "4": "Hai probabilmente individuato solo 2 delle 3 combinazioni possibili (le cifre iniziali sono per forza 2 e 6, e le ultime due cifre vanno scelte tra 7, 8, 9): mancano una delle tre coppie possibili (7-8, 7-9, 8-9)."
+          }
+        },
+        {
+          "id": "LOG_05",
+          "testo": "Franco il tabaccaio ha in cassa 145 euro e non ha monete. Un cliente gli chiede se ha da cambiare 10, 20, 50 o 100 euro, ma Franco risponde a malincuore di no a tutte le richieste. Quanti pezzi da 20 euro ha in cassa Franco?",
+          "immagine_url": null,
+          "opzioni": [
+            "4",
+            "0",
+            "2",
+            "1",
+            "3"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Logica matematica e problem solving",
+          "trappole": {
+            "1": "Hai probabilmente ipotizzato che Franco tenga solo banconote di taglio grande (es. 100 e 50), senza verificare se una tale combinazione permetta di ottenere esattamente 145 euro rispettando tutti e quattro i vincoli del problema (nessun resto possibile per 10, 20, 50 e 100 euro)."
+          }
+        },
+        {
+          "id": "LOG_06",
+          "testo": "Un falegname osserva che nella costruzione dei tavoli all'aperto, se non si usa legno di quercia, il tavolo o si imbarca con l'umidità o si scheggia facilmente, o entrambe le cose. Dunque si deduce logicamente che:",
+          "immagine_url": null,
+          "opzioni": [
+            "se il tavolo si è scheggiato, non è stato usato legno di quercia",
+            "se il tavolo non si è imbarcato e non si è scheggiato, è stato usato legno di quercia",
+            "se si usa legno di quercia, il tavolo sicuramente non si imbarca e non si scheggia",
+            "se il tavolo non si è imbarcato, è stato usato legno di quercia",
+            "se il tavolo non è di quercia, si imbarca sicuramente e si scheggia sicuramente"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Logica proposizionale",
+          "trappole": {
+            "0": "Hai commesso un errore logico: l'affermazione originale descrive solo cosa succede quando NON si usa quercia, ma non esclude che un tavolo di quercia possa comunque scheggiarsi per altri motivi.",
+            "2": "Hai formulato la proposizione inversa (scambiando antecedente e conseguente) trattandola come automaticamente vera con certezza, ma la proposizione originale non fornisce alcuna informazione su cosa accade QUANDO si usa il legno di quercia."
+          }
+        },
+        {
+          "id": "LOG_07",
+          "testo": "Una specie di ninfea raddoppia la propria superficie occupata ogni giorno nello stagno in cui si trova. Se si immette una singola ninfea, lo stagno viene completamente ricoperto dopo 40 giorni. Quanti giorni ci vorranno affinché la superficie dello stesso stagno sia completamente ricoperta se inizialmente vi si immettono quattro ninfee?",
+          "immagine_url": null,
+          "opzioni": [
+            "39 giorni",
+            "10 giorni",
+            "38 giorni",
+            "Dipende dalla superficie dello stagno",
+            "20 giorni"
+          ],
+          "indice_corretto": 2,
+          "argomento": "Logica matematica e problem solving",
+          "trappole": {
+            "1": "Hai applicato un ragionamento lineare (4 volte l'area iniziale $\\Rightarrow$ un quarto del tempo, $40/4=10$), ma la crescita è esponenziale (raddoppio giornaliero), non lineare: partire con un'area 4 volte maggiore equivale a 'saltare' solo 2 giorni di raddoppi (dato che $2^2=4$), non a dividere il tempo per 4.",
+            "3": "Hai pensato che senza conoscere l'area esatta dello stagno non si possa risolvere il problema, ma la risposta dipende solo dal RAPPORTO tra l'area iniziale e quella finale (che raddoppia ogni giorno), non dai valori assoluti delle superfici."
+          }
+        },
+        {
+          "id": "LOG_08",
+          "testo": "Un'indagine svolta tra 1000 clienti di un supermercato mostra che il 60% acquista regolarmente frutta, il 35% acquista regolarmente verdura e il 20% acquista regolarmente entrambe. Dunque, tra i clienti intervistati:",
+          "immagine_url": null,
+          "opzioni": [
+            "più del 75% acquista frutta o verdura",
+            "il 25% non acquista né frutta né verdura",
+            "meno del 70% acquista frutta o verdura",
+            "il 45% acquista solo frutta",
+            "il 10% acquista solo verdura"
+          ],
+          "indice_corretto": 1,
+          "argomento": "Insiemistica",
+          "trappole": {
+            "2": "Applicando correttamente il principio di inclusione-esclusione (60%+35%-20%=75%), la percentuale che acquista frutta o verdura è esattamente 75%, non meno del 70%.",
+            "3": "Hai calcolato male 'solo frutta': si ottiene sottraendo l'intersezione dal totale che acquista frutta (60%-20%=40%), non il 45% indicato in questa opzione."
+          }
+        },
+        {
+          "id": "LOG_09",
+          "testo": "Quali numeri $x$ e $y$ vanno inseriti nella tabella? $$\\begin{array}{ccccccc} 2 & 5 & 10 & 17 & x & 37 & 50 \\\\ 1 & 3 & 9 & 27 & 81 & y & 729 \\end{array}$$",
+          "immagine_url": null,
+          "opzioni": [
+            "x = 26 e y = 243",
+            "x = 24 e y = 243",
+            "x = 26 e y = 162",
+            "x = 25 e y = 243",
+            "x = 25 e y = 162"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Logica sequenziale",
+          "trappole": {
+            "3": "Hai calcolato correttamente $y=243$ (potenze di 3: $3^0,3^1,\\dots,3^6$), ma hai sbagliato la progressione della riga superiore: le differenze tra termini consecutivi sono i numeri dispari crescenti (3,5,7,9,11,13), non un'altra progressione; il valore corretto è $x=17+9=26$, non 25."
+          }
+        },
+        {
+          "id": "LOG_10",
+          "testo": "Indicare qual è la negazione dell'affermazione: 'Filippo ha almeno un gatto nero'.",
+          "immagine_url": null,
+          "opzioni": [
+            "Filippo non ha gatti oppure ha soltanto gatti che non sono neri",
+            "Filippo ha tutti gatti rossi",
+            "Tutti i gatti di Filippo sono bianchi",
+            "Almeno un gatto di Filippo non è nero",
+            "Non tutti i gatti di Filippo sono neri"
+          ],
+          "indice_corretto": 0,
+          "argomento": "Logica proposizionale",
+          "trappole": {
+            "3": "Trappola classica: 'almeno uno non è nero' non è la negazione di 'almeno uno è nero' — le due affermazioni possono essere vere contemporaneamente (Filippo potrebbe avere sia gatti neri sia gatti di altri colori). La negazione corretta richiede che NESSUN gatto sia nero."
+          }
+        }
+      ]
+    },
+    {
+      "nome": "Comprensione Verbale",
+      "tempo_minuti": 30,
+      "testi": [
+        {
+          "id": "TESTO_01",
+          "titolo": "L'estetica del ferro e le aporie del progresso: l'opera di Isambard Kingdom Brunel",
+          "corpo": "**[1]** Il mito dell'ingegneria vittoriana trova nella figura di Isambard Kingdom Brunel la sua incarnazione più audace e complessa, delineando un archetipo professionale che supera la figura del mero esecutore tecnico per farsi creatore di nuove coordinate spaziali e temporali. Per Brunel, l'atto del progettare non si esauriva nella risoluzione di un problema statico o dinamico entro limiti di convenienza economica, ma costituiva un'affermazione estetica e filosofica assoluta, in cui il ferro e la pietra diventavano strumenti di sottomissione e riscrittura del paesaggio naturale. Questa concezione monumentale e totalizzante dell'opera ingegneristica, se da un lato gli valse l'ammirazione incondizionata dei contemporanei, dall'altro lo pose in uno stato di perenne e drammatica tensione con i propri finanziatori. Laddove gli investitori esigevano un solido e immediato ritorno sul capitale, Brunel rispondeva con visioni grandiose che non ammettevano compromessi qualitativi, anteponendo l'assolutezza dell'opera a qualsiasi logica di puro bilancio.\n\n**[2]** L'esempio più emblematico di questa filosofia progettuale è rappresentato dalla Great Western Railway (GWR), la ferrovia concepita per collegare Londra a Bristol, dove Brunel introdusse il rivoluzionario scartamento largo di sette piedi (circa 2,13 metri) in aperta opposizione allo scartamento standard Stephensoniano di quattro piedi e otto pollici e mezzo, che era invece un adattamento empirico dei carrelli minerari a trazione ippica. Brunel comprese che la stabilità, il comfort e la velocità di un trasporto transcontinale di massa richiedevano basi geometriche radicalmente diverse da quelle ereditate dal passato. Questa scelta tecnica diede avvio alla celebre \"Guerra degli scartamenti\", una disputa non solo tecnologica ma anche commerciale e politica, che vide infine la capitolazione dello scartamento largo dinanzi all'esigenza sistemica di un'interoperabilità di rete nazionale. La standardizzazione legislativa che ne seguì dimostrò come l'intuito del singolo genio, per quanto scientificamente superiore, debba inevitabilmente piegarsi alle necessità infrastrutturali e di rete che governano l'integrazione di un paese.\n\n**[3]** Se la disputa sugli scartamenti evidenzia il conflitto tra standardizzazione e innovazione, il progetto della ferrovia atmosferica nel South Devon ne illustra il fallimento dinanzi alle limitazioni materiali dell'epoca. Brunel, nel tentativo di eliminare il rumore, il fumo e l'usura delle tradizionali locomotive a vapore lungo una tratta costiera caratterizzata da forti pendenze e curve repentine, propose un sistema di trazione a vuoto pneumatico, in cui i treni venivano mossi dalla pressione atmosferica agente su un pistone scorrevole entro un tubo continuo posizionato tra le rotaie, mentre una serie di pompe a vapore stazionarie creava il vuoto davanti ad esso. Il sistema, teoricamente ineccepibile e dotato di un'elevata efficienza energetica iniziale, naufragò a causa della vulnerabilità delle guarnizioni di cuoio necessarie a mantenere la tenuta stagna della fessura longitudinale del tubo. Il grasso animale (sego) utilizzato per mantenere flessibile il cuoio attirò i roditori che ne fecero scempio, mentre l'umidità e la salsedine marina ne accelerarono il deterioramento, costringendo la compagnia ferroviaria a smantellare l'impianto a costi catastrofici. Questo fallimento mostra come la visione bruneliana, pur precorritrice di una moderna sensibilità per l'estetica ambientale e l'integrazione paesaggistica, fosse ostacolata dall'assenza di materiali sintetici adeguati alle sollecitazioni del sistema.\n\n**[4]** Il medesimo anelito verso l'infinitamente grande caratterizzò la carriera marittima di Brunel, culminata nella progettazione della celebre trilogia di piroscafi transatlantici che segnarono il passaggio dalla navigazione in legno a quella in metallo. Se la SS Great Western dimostrò la fattibilità economica del servizio a vapore transoceanico continuo e la SS Great Britain introdusse l'accoppiamento decisivo tra scafo in ferro e propulsione a elica, fu la SS Great Eastern a rappresentare la sintesi più estrema del gigantismo bruneliano. Concepita per viaggiare da Londra all'Australia senza necessità di rifornimento di carbone lungo il tragitto, questa nave colossale era cinque volte più grande di qualsiasi imbarcazione coeva. Tuttavia, la sua costruzione e il drammatico varo laterale prosciugarono le risorse degli investitori, e al momento del suo completamento la nave si rivelò commercialmente obsoleta e inadatta alle rotte originarie per mancanza di infrastrutture portuali capaci di accoglierla. Il suo paradosso risiede nel fatto che, pur fallendo come mezzo di trasporto passeggeri, trovò la sua vera vocazione storica nella posa del primo cavo telegrafico transatlantico, trasformandosi da gigante inutile a strumento materiale della prima globalizzazione dell'informazione.\n\n**[5]** In ultima analisi, l'eredità epistemologica e storica di Brunel risiede proprio nella natura non incrementale del suo procedere progettuale. Mentre contemporanei come Robert Stephenson operavano entro i confini rassicuranti dell'ottimizzazione economica e della standardizzazione metodologica, Brunel applicava un paradigma di \"progettazione totale\" che sfidava costantemente le leggi dell'economia e, talvolta, i limiti fisici della materia a sua disposizione. Il successo storico di Brunel non può essere misurato con il metro della contabilità mercantile dei singoli progetti, molti dei quali si conclusero con gravosi dissesti finanziari per i suoi sostenitori; esso risiede piuttosto nell'aver forzato e ridefinito i confini concettuali della disciplina ingegneristica, dimostrando che l'ingegneria dell'era industriale non è una mera tecnica subordinata, bensì una forma di filosofia materiale che plasma e riorganizza attivamente il rapporto ontologico tra l'umanità e la natura.",
+          "quesiti": [
+            {
+              "id": "COMP_BRUNEL_01",
+              "testo": "Si evince dal primo paragrafo [1] che la perenne tensione tra Brunel e i suoi finanziatori era determinata:",
+              "immagine_url": null,
+              "opzioni": [
+                "dalla tendenza di Brunel a delegare l'esecuzione dei suoi progetti a tecnici privi di un'adeguata qualificazione professionale.",
+                "dal contrasto insito tra una concezione assoluta, filosofica ed estetica del progetto ingegneristico e le stringenti necessità di redditività commerciale dei capitali investiti.",
+                "dall'insistenza degli investitori nell'imporre l'uso di materiali tradizionali come il legno in luogo del ferro prediletto dall'ingegnere.",
+                "dal fatto che Brunel fosse privo delle necessarie competenze matematiche per calcolare la staticità delle proprie opere monumentali.",
+                "dall'opposizione sistematica del governo britannico, il quale vietava l'utilizzo di capitali privati per la costruzione delle grandi infrastrutture dell'Impero."
+              ],
+              "indice_corretto": 1,
+              "argomento": "Comprensione verbale - Ingegneria vittoriana (Brunel)",
+              "trappole": {
+                "0": "Non vi è alcuna menzione nel testo di una presunta delega di Brunel a tecnici non qualificati: il conflitto descritto è con i finanziatori, non con i propri collaboratori tecnici."
+              }
+            },
+            {
+              "id": "COMP_BRUNEL_02",
+              "testo": "Secondo quanto argomentato nel secondo paragrafo [2], l'adozione dello \"scartamento largo\" di sette piedi nella Great Western Railway rappresenta:",
+              "immagine_url": null,
+              "opzioni": [
+                "una scelta dettata dalla necessità di riprodurre, su scala più ampia, le originarie geometrie dei carrelli da miniera a trazione ippica.",
+                "un errore di calcolo dovuto alla cecità di Brunel dinanzi ai vantaggi scientifici e di stabilità offerti dallo scartamento standard Stephensoniano.",
+                "un espediente puramente formale finalizzato a superare i vincoli costruttivi imposti dalla ristrettezza del Maidenhead Bridge.",
+                "un vincolo legislativo imposto dal parlamento britannico per ostacolare l'espansione commerciale della compagnia concorrente di Stephenson.",
+                "una lungimirante visione tecnica volta a massimizzare comfort e prestazioni, la quale tuttavia dovette soccombere dinanzi alle necessità di unificazione e interoperabilità della rete nazionale."
+              ],
+              "indice_corretto": 4,
+              "argomento": "Comprensione verbale - Ingegneria vittoriana (Brunel)",
+              "trappole": {
+                "0": "Il testo specifica che era lo scartamento Stephensoniano (lo standard) a derivare empiricamente dai carrelli minerari a trazione ippica, mentre quello largo di Brunel vi si opponeva radicalmente: hai invertito i due riferimenti."              }
+            },
+            {
+              "id": "COMP_BRUNEL_03",
+              "testo": "In base all'analisi del terzo paragrafo [3], il naufragio tecnologico della ferrovia atmosferica nel South Devon:",
+              "immagine_url": null,
+              "opzioni": [
+                "dimostra la fallacia teorica e scientifica del principio meccanico della trazione a vuoto pneumatico applicato ai trasporti di massa.",
+                "testimonia che Brunel era del tutto privo di sensibilità ambientale, avendo progettato un sistema che deturpava l'estetica delle coste del South Devon.",
+                "evidenzia come la fattibilità di un'idea teoricamente valida possa essere preclusa dalle limitazioni e dalla deperibilità dei materiali disponibili in una data epoca storica.",
+                "fu evitato all'ultimo momento grazie alla sostituzione delle deperibili guarnizioni di cuoio con moderne strisce di gomma sintetica impermeabile.",
+                "fu causato principalmente dalle elevate pendenze e dalle curve repentine della tratta, che rendevano la pressione atmosferica insufficiente a generare moto."
+              ],
+              "indice_corretto": 2,
+              "argomento": "Comprensione verbale - Ingegneria vittoriana (Brunel)",
+              "trappole": {
+                "4": "Il testo menziona le pendenze e le curve solo come motivazione che spinse Brunel a scegliere quel sistema (per evitare fumo e usura), non come causa del fallimento meccanico, che fu invece la deperibilità delle guarnizioni di cuoio."
+              }
+            },
+            {
+              "id": "COMP_BRUNEL_04",
+              "testo": "Quale paradosso caratterizzò la vicenda storica della celebre nave SS Great Eastern descritta nel quarto paragrafo [4]?",
+              "immagine_url": null,
+              "opzioni": [
+                "Trovò immediato successo commerciale nelle rotte australiane, ma fu successivamente demolita per ordine del governo a causa della sua lentezza.",
+                "Pur essendo cinque volte più piccola delle imbarcazioni coeve, richiese una quantità di carbone talmente elevata da azzerare lo spazio per i passeggeri.",
+                "Pur rivelandosi un disastro commerciale come nave passeggeri e non potendo servire le rotte originarie, divenne lo strumento indispensabile per la posa del primo cavo telegrafico transatlantico.",
+                "Pur rappresentando il culmine della navigazione in legno, fu resa obsoleta dalla nascita degli scafi in ferro introdotti dalla SS Great Western.",
+                "Pur essendo stata concepita per le rotte atlantiche, naufragò a causa della sua eccessiva stazza durante il viaggio inaugurale verso New York."
+              ],
+              "indice_corretto": 2,
+              "argomento": "Comprensione verbale - Ingegneria vittoriana (Brunel)",
+              "trappole": {
+              }
+            },
+            {
+              "id": "COMP_BRUNEL_05",
+              "testo": "Quale tesi esprime l'autore del testo in merito al valore complessivo dell'eredità storica di Brunel?",
+              "immagine_url": null,
+              "opzioni": [
+                "L'opera di Brunel dimostra come lo sviluppo tecnologico possa realizzarsi solo escludendo rigorosamente qualsiasi implicazione estetica o filosofica.",
+                "L'ingegneria di Brunel si è rivelata una mera tecnica subordinata incapace di influenzare il rapporto reale tra l'umanità e l'ambiente naturale.",
+                "Il successo di Brunel risiede nell'aver scardinato e ridefinito i confini concettuali della disciplina, concependo l'ingegneria come una forma di filosofia materiale che plasma attivamente la realtà.",
+                "Il valore di Brunel risiede unicamente nella redditività economica e nel successo finanziario dei suoi singoli progetti d'avanguardia.",
+                "Brunel deve essere considerato un teorico astratto le cui opere non hanno trovato alcuna reale applicazione pratica nel corso del XIX secolo."
+              ],
+              "indice_corretto": 2,
+              "argomento": "Comprensione verbale - Ingegneria vittoriana (Brunel)",
+              "trappole": {
+                "3": "L'autore specifica esplicitamente che il valore di Brunel non può essere misurato sulla base della pura contabilità mercantile, visti i frequenti dissesti finanziari."              }
+            }
+          ]
+        },
+        {
+          "id": "TESTO_02",
+          "titolo": "L'esternalizzazione cognitiva nell'era digitale: l'intelligenza artificiale tra sviluppo intellettuale e regressione formativa",
+          "corpo": "1 L'evoluzione delle tecnologie dell'informazione ha storicamente ridefinito i confini dell'esternalizzazione cognitiva, quel processo mediante il quale la mente umana delega a supporti esterni parte del proprio carico di lavoro. Dalla nascita della scrittura, stigmatizzata da Platone nel *Fedro* come causa di amnesia e deterioramento della memoria, fino all'avvento della calcolatrice scientifica, l'esternalizzazione ha sollevato interrogativi di natura epistemologica. Tuttavia, l'integrazione di sistemi di intelligenza artificiale generativa (come i modelli linguistici di grandi dimensioni) nei percorsi scolastici e universitari introduce uno scarto qualitativo senza precedenti. Se i supporti tradizionali agivano come semplici contenitori o esecutori di calcoli algoritmici, l'intelligenza artificiale si propone come un surrogato del pensiero sintetico e argomentativo. Il rischio immediato di tale transizione risiede nella cosiddetta \"illusione di competenza\" (o *fluency illusion*): l'immediatezza, la fluidità e l'apparente autorevolezza con cui la macchina genera risposte complesse inducono nel discente la convinzione di aver assimilato concetti che, in realtà, ha soltanto lambito superficialmente.\n\n2 Questo fenomeno dà origine al \"paradosso della performance\": nell'immediato, l'adozione incontrollata di strumenti algoritmici determina un sensibile miglioramento dei risultati accademici a breve termine — quali saggi formali impeccabili, codici di programmazione privi di errori e schede di sintesi prodotte all'istante. Tuttavia, la ricerca psicopedagogica evidenzia come questo incremento prestazionale sia inversamente proporzionale alla durevolezza dell'apprendimento effettivo. La rimozione sistematica dello sforzo intellettuale genera un \"debito pedagogico\" latente, ovvero un deficit cumulativo di competenze analitiche e logico-linguistiche fondamentali. Tale debito emerge in tutta la sua gravità nei contesti valutativi in cui l'accesso alla tecnologia è precluso, rivelando una fragilità cognitiva che rischia di compromettere la capacità autonoma di elaborazione critica e di problem-solving dei futuri professionisti.\n\n3 Dal punto di vista della psicologia cognitiva, l'ostacolo fondamentale alla memorizzazione a lungo termine risiede nella perdita delle \"difficoltà desiderabili\" (*desirable difficulties*), teorizzate da Robert ed Elizabeth Bjork. L'apprendimento profondo e la successiva codifica sinaptica non sono processi passivi o indolori, ma richiedono un certo grado di \"attrito produttivo\" (*productive friction*): lo sforzo attivo di rievocazione, la fatica della sintesi concettuale e l'elaborazione di nessi causali di fronte a un problema irrisolto. Quando l'allievo delega all'intelligenza artificiale la formulazione di una sintesi, la correzione di una tesi o la scrittura di un'analisi testuale, egli azzera questo attrito. In assenza di sforzo cognitivo, il cervello non attiva i meccanismi biologici di consolidamento della traccia mnestica, derubricando l'informazione a rumore di fondo transitorio e producendo una forma latente di amnesia digitale.\n\n4 Gli effetti di questa esternalizzazione non sono tuttavia simmetrici, ma dipendono strettamente dal grado di sviluppo intellettuale del sottomesso. Si delinea così una netta linea di demarcazione epistemologica tra lo studente \"esperto\" e il discente \"novizio\". Per il ricercatore o il professionista affermato, che possiede già una solida \"infrastruttura di pensiero\" e schemi mentali consolidati, l'intelligenza artificiale opera come un potente amplificatore cognitivo. Egli è in grado di delegare compiti di basso livello, concentrando le proprie risorse critiche sulla sintesi di alto livello e sulla validazione dei risultati, di cui sa riconoscere errori o allucinazioni. Per il novizio (lo studente della scuola d'obbligo o del primo ciclo universitario), al contrario, l'intelligenza artificiale rischia di agire come un sostituto del pensiero. Privato dell'opportunità di cimentarsi con le difficoltà basilari della disciplina, il novizio non riesce a strutturare quei medesimi schemi mentali che gli consentirebbero, in un secondo momento, di valutare l'affidabilità dell'output algoritmico, scivolando in una condizione di subalternità e dipendenza cognitiva.\n\n5 Di fronte a questa deriva, la risposta pedagogica non può risolversi né in un sterile neoluddismo proibizionista — impraticabile data la pervasività dei sistemi digitali — né in un'accettazione acritica e priva di attriti. La sfida per le istituzioni scolastiche e universitarie risiede nella riconfigurazione del ruolo del docente, il quale deve evolvere in un \"architetto dell'attrito\" (*friction architect*). Compito della didattica contemporanea diventa la progettazione intenzionale di percorsi ibridi in cui l'intelligenza artificiale sia impiegata non come generatore finale di risposte, ma come strumento di *scaffolding* (impalcatura di sostegno) volto a stimolare la metacognizione. Solo attraverso un design educativo che preservi la centralità dello sforzo intellettuale attivo, integrando la tecnologia per accrescere la complessità del pensiero anziché per azzerarla, l'istruzione potrà garantire lo sviluppo di una cittadinanza consapevole e intellettualmente autonoma.",
+          "quesiti": [
+            {
+              "id": "COMP_IA_01",
+              "testo": "In base all'analisi condotta nel primo paragrafo, l'intelligenza artificiale generativa si distingue dai supporti di esternalizzazione tradizionali perché:",
+              "immagine_url": null,
+              "opzioni": [
+                "impedisce qualsiasi forma di amnesia digitale legata alla memoria a lungo termine.",
+                "riduce drasticamente l'illusione di competenza (fluency illusion) nel discente.",
+                "garantisce l'assimilazione rapida e profonda dei concetti scientifici complessi.",
+                "agisce come mero contenitore passivo di conoscenze anziché come elaboratore attivo.",
+                "si propone come un surrogato dei processi di pensiero sintetico e argomentativo dell'utente."
+              ],
+              "indice_corretto": 4,
+              "argomento": "Comprensione verbale - Intelligenza artificiale e apprendimento",
+              "trappole": {
+                "3": "Questa opzione descrive la caratteristica dei supporti TRADIZIONALI (contenitori o esecutori di calcoli), non dell'IA generativa, che invece si distingue proprio per il superamento di questo ruolo passivo."
+              }
+            },
+            {
+              "id": "COMP_IA_02",
+              "testo": "All'interno del secondo paragrafo, il \"paradosso della performance\" consiste nel fatto che:",
+              "immagine_url": null,
+              "opzioni": [
+                "il miglioramento immediato dei risultati accademici maschera un deficit cumulativo e a lungo termine dell'apprendimento.",
+                "lo sforzo intellettuale richiesto per utilizzare l'intelligenza artificiale rende i risultati iniziali scadenti.",
+                "l'uso autonomo degli strumenti digitali è ostacolato dall'assenza di una corretta infrastruttura tecnologica.",
+                "gli studenti con migliori competenze di problem-solving ottengono prestazioni inferiori quando usano l'intelligenza artificiale.",
+                "le prestazioni degli studenti migliorano unicamente nei contesti d'esame in cui la tecnologia è del tutto preclusa."
+              ],
+              "indice_corretto": 0,
+              "argomento": "Comprensione verbale - Intelligenza artificiale e apprendimento",
+              "trappole": {
+              }
+            },
+            {
+              "id": "COMP_IA_03",
+              "testo": "Secondo la psicologia cognitiva discussa nel terzo paragrafo, l'assenza di \"attrito produttivo\" (productive friction):",
+              "immagine_url": null,
+              "opzioni": [
+                "accelera il processo biologico di consolidamento della traccia mnestica.",
+                "impedisce l'attivazione dei meccanismi profondi necessari all'apprendimento duraturo.",
+                "rende superflua la distinzione tra l'esternalizzazione tradizionale e quella digitale.",
+                "permette al cervello di focalizzarsi su compiti di più alta complessità concettuale.",
+                "costituisce una delle difficoltà desiderabili teorizzate da Robert ed Elizabeth Bjork."
+              ],
+              "indice_corretto": 1,
+              "argomento": "Comprensione verbale - Intelligenza artificiale e apprendimento",
+              "trappole": {
+                "0": "Descrive l'esatto opposto di quanto argomentato dal testo: è l'assenza di attrito a INIBIRE, non ad accelerare, il consolidamento mnestico."
+              }
+            },
+            {
+              "id": "COMP_IA_04",
+              "testo": "La \"linea di demarcazione epistemologica\" tra studenti \"novizi\" ed \"esperti\" descritta nel quarto paragrafo implica che:",
+              "immagine_url": null,
+              "opzioni": [
+                "solo i novizi sono in grado di trarre reale beneficio dall'uso dell'intelligenza artificiale come impalcatura di sostegno.",
+                "l'intelligenza artificiale rischia di ostacolare nei novizi la costruzione degli schemi mentali di base necessari alla valutazione critica.",
+                "i novizi possiedono una solida infrastruttura di pensiero che consente loro di delegare compiti di basso livello.",
+                "gli esperti non necessitano di alcuna validazione critica dell'output generato dai modelli generativi.",
+                "lo sviluppo intellettuale del soggetto è del tutto indipendente dall'uso della tecnologia come surrogato o amplificatore."
+              ],
+              "indice_corretto": 1,
+              "argomento": "Comprensione verbale - Intelligenza artificiale e apprendimento",
+              "trappole": {
+              }
+            },
+            {
+              "id": "COMP_IA_05",
+              "testo": "Considerando l'intero brano, quale delle seguenti conclusioni è coerente con la tesi dell'autore sull'esternalizzazione cognitiva tramite IA?",
+              "immagine_url": null,
+              "opzioni": [
+                "Lo sviluppo tecnologico è intrinsecamente dannoso e va rigettato per ritornare a metodologie di studio esclusivamente mnemoniche.",
+                "Delegare alla scrittura o alle calcolatrici ha prodotto gli stessi identici rischi cognitivi insiti nell'uso dei modelli linguistici generativi.",
+                "L'efficacia dell'apprendimento profondo è indissolubilmente legata all'esperienza dello sforzo e alla risoluzione autonoma delle difficoltà concettuali.",
+                "L'eliminazione dell'attrito intellettuale favorisce l'autonomia intellettuale e la formazione di cittadini più consapevoli.",
+                "La validazione critica dei contenuti generati dall'IA è un'abilità spontanea che non necessita dell'acquisizione di conoscenze pregresse."
+              ],
+              "indice_corretto": 2,
+              "argomento": "Comprensione verbale - Intelligenza artificiale e apprendimento",
+              "trappole": {
+                "1": "È errata perché l'autore rivendica fin dal primo paragrafo uno 'scarto qualitativo senza precedenti' dell'IA rispetto ai media storici come scrittura e calcolatrici, non un'equivalenza di rischio."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
