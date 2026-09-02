@@ -81,7 +81,7 @@ def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
 PRODUCT_ID = "n7Gu-40fE7dmbd-JcGP-Wg=="
 
 # Numero massimo di dispositivi (browser) che possono attivare la stessa licenza.
-MAX_DISPOSITIVI_PER_LICENZA = 3
+MAX_DISPOSITIVI_PER_LICENZA = 20
 
 # Nome del cookie usato per riconoscere un dispositivo già registrato.
 COOKIE_DEVICE_ID = "tolc_device_id"
