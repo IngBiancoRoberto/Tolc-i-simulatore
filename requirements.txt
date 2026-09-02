@@ -1,1 +1,10 @@
-streamlit>=1.26.0
+streamlit
+json
+csv
+io
+time
+uuid
+requests
+datetime
+streamlit_autorefresh
+extra_streamlit_components
