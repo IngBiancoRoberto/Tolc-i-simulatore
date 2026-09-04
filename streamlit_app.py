@@ -18,6 +18,23 @@ import extra_streamlit_components as stx
 # Configurazione Pagina
 st.set_page_config(page_title="Fisica FACILE - Simulatore TOLC-I", page_icon="🎓", layout="wide")
 
+# CSS globale: aumenta la dimensione del testo delle opzioni (st.radio) in
+# tutta l'app, dato che con il font di default risultava troppo piccolo.
+# Copre sia la struttura DOM più recente di Streamlit (p dentro il
+# markdown container) sia quella più datata (span), per maggiore robustezza
+# al variare della versione di Streamlit.
+st.markdown(
+    """
+    <style>
+        div[data-testid="stRadio"] label p,
+        div[data-testid="stRadio"] label span {
+            font-size: 1.15rem !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
     """
@@ -81,7 +98,7 @@ def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
 PRODUCT_ID = "n7Gu-40fE7dmbd-JcGP-Wg=="
 
 # Numero massimo di dispositivi (browser) che possono attivare la stessa licenza.
-MAX_DISPOSITIVI_PER_LICENZA = 20
+MAX_DISPOSITIVI_PER_LICENZA = 2
 
 # Nome del cookie usato per riconoscere un dispositivo già registrato.
 COOKIE_DEVICE_ID = "tolc_device_id"
@@ -221,7 +238,7 @@ if not st.session_state.licenza_valida:
 # ---------------------------------------------------------
 @st.cache_data
 def carica_dati():
-    with open("TOLC-I-Domande-sample_v13.json", "r", encoding="utf-8") as f:
+    with open("TOLC-I-Domande-sample_v12.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 data = carica_dati()
@@ -493,6 +510,7 @@ if st.session_state.test_completato:
                     if testo_trappola:
                         trappole_subite.append({
                             "sezione": sez["nome"],
+                            "numero_domanda": numero_domanda,
                             "argomento": q["argomento"],
                             "trappola": testo_trappola
                         })
@@ -518,7 +536,22 @@ if st.session_state.test_completato:
 
         st.divider()
 
-    st.metric(label="PUNTEGGIO TOTALE", value=f"{punteggio_totale:.2f}")
+    st.markdown(
+        f"""
+        <div style="text-align:center; padding: 1.75rem 1rem; margin: 1.5rem 0;
+                    border: 3px solid #FF4B4B; border-radius: 16px;
+                    background-color: rgba(255, 75, 75, 0.06);">
+            <div style="font-size: 1.3rem; font-weight: 600; letter-spacing: 0.05em;
+                        text-transform: uppercase; color: #888;">
+                Punteggio Totale
+            </div>
+            <div style="font-size: 4rem; font-weight: 800; line-height: 1.1; color: #FF4B4B;">
+                {punteggio_totale:.2f}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     fascia = trova_fascia_punteggio(punteggio_totale, data.get("fasce_punteggio", []))
 
@@ -549,7 +582,7 @@ if st.session_state.test_completato:
     if trappole_subite:
         st.warning("⚠️ **Analisi Diagnostica delle Trappole Subite:**")
         for t in trappole_subite:
-            st.write(f"- **[{t['sezione']} - {t['argomento']}]**: {t['trappola']}")
+            st.write(f"- **[{t['sezione']} - Domanda {t['numero_domanda']} - {t['argomento']}]**: {t['trappola']}")
 
     if st.button("🔄 Ricomincia Nuova Simulazione"):
         st.session_state.sezione_attuale_idx = 0
