@@ -55,36 +55,49 @@ def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
         # st.components.v1.html è deprecato: st.iframe è il sostituto
         # ufficiale, con lo stesso comportamento (JavaScript eseguibile e
         # accesso same-origin alla pagina principale tramite window.parent).
+        #
+        # NOTA 1: includiamo l'identificatore_schermata in un commento HTML
+        # per rendere il contenuto univoco ad ogni chiamata. Senza questo
+        # accorgimento, iniettando sempre lo stesso identico HTML/script, il
+        # browser potrebbe considerare l'iframe "invariato" e non rieseguire
+        # lo script, causando il comportamento incostante osservato.
+        #
+        # NOTA 2: un solo tentativo dopo 50ms non è sempre sufficiente: se la
+        # nuova schermata è più lenta a disegnarsi (es. contiene molte
+        # domande), lo scroll rischia di scattare troppo presto. Riprova a
+        # più intervalli crescenti per coprire anche i rendering più lenti.
         st.iframe(
-            """
+            f"""
+            <!-- schermata: {identificatore_schermata} -->
             <script>
-                function scrollaInCima() {
+                function scrollaInCima() {{
                     const finestraApp = window.parent;
 
                     // 1. Riporta in cima la pagina principale
-                    try {
-                        finestraApp.scrollTo({top: 0, left: 0, behavior: "instant"});
+                    try {{
+                        finestraApp.scrollTo({{top: 0, left: 0, behavior: "instant"}});
                         finestraApp.document.documentElement.scrollTop = 0;
                         finestraApp.document.body.scrollTop = 0;
-                    } catch (e) {}
+                    }} catch (e) {{}}
 
                     // 2. Riporta in cima eventuali riquadri interni con scroll
                     //    proprio (es. il container che contiene le domande),
                     //    individuati cercando elementi con overflow verticale attivo.
-                    try {
+                    try {{
                         const tuttiGliElementi = finestraApp.document.querySelectorAll("div");
-                        tuttiGliElementi.forEach((el) => {
+                        tuttiGliElementi.forEach((el) => {{
                             const stile = finestraApp.getComputedStyle(el);
-                            if (stile.overflowY === "auto" || stile.overflowY === "scroll") {
+                            if (stile.overflowY === "auto" || stile.overflowY === "scroll") {{
                                 el.scrollTop = 0;
-                            }
-                        });
-                    } catch (e) {}
-                }
-                // Un piccolo ritardo assicura che il DOM della nuova
-                // schermata sia già stato disegnato prima di resettare lo scroll.
+                            }}
+                        }});
+                    }} catch (e) {{}}
+                }}
+                // Più tentativi a intervalli crescenti, per coprire sia i
+                // rendering rapidi che quelli più lenti (schermate con molte
+                // domande possono impiegare più tempo a disegnarsi).
                 scrollaInCima();
-                setTimeout(scrollaInCima, 50);
+                [50, 150, 300, 600, 1000].forEach((ritardo) => setTimeout(scrollaInCima, ritardo));
             </script>
             """,
             height=1,  # st.iframe non accetta 0: 1px è il minimo consentito, praticamente invisibile
@@ -229,7 +242,7 @@ if not st.session_state.licenza_valida:
                             st.rerun()
 
     st.markdown("---")
-    st.caption("Non hai ancora una chiave? [Acquista la guida e le simulazioni su Gumroad](https://gumroad.com)")
+    st.caption("Non hai ancora una chiave? [Acquista la guida e le simulazioni su Gumroad](https://easyphysics101.gumroad.com/)")
     st.stop() # Interrompe l'esecuzione dello script se non si è verificati
 
 
@@ -270,7 +283,7 @@ def renderizza_quesito(q, numero_visualizzato):
     lettera A/B/C... e salvataggio della risposta), riutilizzabile sia dalle
     sezioni con elenco piatto di quesiti sia da quelle strutturate a testi."""
     st.markdown(f"#### Quesito {numero_visualizzato}")
-    st.write(q["testo"])
+    st.markdown(f"##### {q["testo"]}")
 
     if q.get("immagine_url"):
         st.image(q["immagine_url"], width=400)
@@ -294,7 +307,8 @@ def renderizza_quesito(q, numero_visualizzato):
         options=opzioni_totali,
         index=opzioni_totali.index(risposta_precedente),
         key=f"radio_{q['id']}",
-        format_func=formatta_opzione
+        format_func=formatta_opzione,
+        label_visibility="collapsed"
     )
 
     st.session_state.risposte_totali[q["id"]] = scelta
@@ -457,10 +471,18 @@ if st.session_state.mostra_dialog_uscita:
 # SCHERMATA 1: TEST COMPLETATO
 # ---------------------------------------------------------
 if st.session_state.test_completato:
+    schermata_appena_aperta = st.session_state.get("ultima_schermata_mostrata") != "risultati"
     scrolla_in_cima_se_nuova_schermata("risultati")
 
     st.title("📊 Risultato Finale Simulazione CISIA")
-    st.balloons()
+
+    # I palloncini devono festeggiare una volta sola, al primo ingresso in
+    # questa schermata. Senza questo controllo, ripartirebbero ad ogni
+    # rerun dello script — compreso quello scatenato dal click sul
+    # pulsante "Scarica CSV" — perché st.balloons() veniva chiamato
+    # incondizionatamente ogni volta che questo blocco viene eseguito.
+    if schermata_appena_aperta:
+        st.balloons()
     
     punteggio_totale = 0.0
     trappole_subite = []
