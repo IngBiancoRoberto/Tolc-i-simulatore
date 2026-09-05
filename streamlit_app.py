@@ -251,7 +251,7 @@ if not st.session_state.licenza_valida:
 # ---------------------------------------------------------
 @st.cache_data
 def carica_dati():
-    with open("TOLC-I-Domande-sample_v13.json", "r", encoding="utf-8") as f:
+    with open("TOLC-I-Domande.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 data = carica_dati()
