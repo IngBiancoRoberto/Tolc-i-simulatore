@@ -10,19 +10,25 @@
       "punteggio_min": null,
       "punteggio_max": 15,
       "posizionamento": "Sotto media",
-      "consiglio": "Rischio elevato di OFA. È necessario rivedere i moduli teorici base"
+      "consiglio": "Hai ancora margine di miglioramento: alcuni concetti chiave e trappole comuni ti hanno tratto in inganno. Consulta subito il Manuale di Analisi & Spiegazioni PDF per studiare i passaggi svolti dei quesiti che hai sbagliato e rivedere la teoria di base."
     },
     {
       "punteggio_min": 15,
       "punteggio_max": 25,
       "posizionamento": "Fascia media",
-      "consiglio": "Sei sulla buona strada per l'immatricolazione, ma occorre ottimizzare"
+      "consiglio": "Buon risultato di partenza! Possiedi le basi, ma hai perso punti preziosi su sviste o distrazioni. Rivedi le Trappole nel PDF per affinare la tua strategia e individuare subito i distrattori."
     },
     {
       "punteggio_min": 25,
       "punteggio_max": null,
       "posizionamento": "Fascia alta",
-      "consiglio": "Preparazione solida. I distrattori principali sono stati superati; la priorità ora è azzerare le risposte errate per scalare le graduatorie negli atenei più selettivi."
+      "consiglio": "Ottima prova! Hai una preparazione solida e una buona gestione dei tempi. Per puntare al massimo, apri il PDF e concentrati sui quesiti che hai sbagliato per perfezionare i passaggi più complessi."
+    },
+    {
+      "punteggio_min": 35,
+      "punteggio_max": null,
+      "posizionamento": "Fascia eccellenza (Top 5%)",
+      "consiglio": "Prestazione eccellente! Dominanza totale dei contenuti e ottima gestione dello stress da timer. Fai un rapido ripasso di controllo sul PDF allegato per consolidare questo livello in vista del test ufficiale."
     }
   ],
   "sezioni": [
@@ -725,7 +731,7 @@
     },
     {
       "nome": "Comprensione Verbale",
-      "tempo_minuti": 30,
+      "tempo_minuti": 20,
       "testi": [
         {
           "id": "TESTO_01",
