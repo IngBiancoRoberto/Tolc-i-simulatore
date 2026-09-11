@@ -389,56 +389,52 @@
         },
         {
           "id": "FIS_02",
-          "testo": "Due sfere solide $A$ e $B$ hanno lo stesso identico raggio. La sfera $A$ è di alluminio (densità $2{,}7\\text{ g/cm}^3$) e la sfera $B$ è di piombo (densità $11{,}3\\text{ g/cm}^3$). Entrambe le sfere vengono immerse completamente in un recipiente colmo d'olio. Quale relazione intercorre tra le spinte di Archimede $S_A$ e $S_B$ subite dalle due sfere?",
+          "testo": "Un pendolo semplice, costituito da una sferetta fissata all'estremità di un filo inestensibile e di massa trascurabile, viene lasciato libero di oscillare a partire da fermo da una posizione iniziale ad un'altezza h rispetto al punto più basso della sua traiettoria. Trascurando gli attriti con l'aria, quale delle seguenti affermazioni descrive correttamente le trasformazioni energetiche del sistema durante l'oscillazione?",
           "immagine_url": null,
           "opzioni": [
-            "L'alluminio è più leggero e risente meno della forza di gravità, quindi $S_A > S_B$",
-            "Il piombo sposta più liquido a parità di volume immerso, quindi $S_B > S_A$",
-            "$S_A = S_B$ perché le due sfere hanno lo stesso volume",
-            "La relazione tra le spinte dipende unicamente dalla profondità alla quale si trovano le sfere",
-            "$S_B \\approx 4{,}2\\, S_A$ perché il piombo ha una densità molto superiore"
+            "Durante la discesa, l'energia potenziale gravitazionale diminuisce linearmente con la velocità della sferetta",
+            "Nel punto più basso della traiettoria, l'energia cinetica della sferetta è massima ed è uguale all'energia potenziale gravitazionale iniziale",
+            "L'energia meccanica totale del sistema varia lungo la traiettoria, raggiungendo il suo valore massimo nel punto di inversione del moto",
+            "Nei punti di massima altezza raggiunta durante l'oscillazione, l'accelerazione della sferetta è nulla",
+            "Nel punto più basso della traiettoria, la forza di tensione del filo compie un lavoro positivo trasformando l'energia potenziale in energia cinetica"
           ],
-          "indice_corretto": 2,
+          "indice_corretto": 1,
           "argomento": "Meccanica",
           "trappole": {
-            "4": "Hai pensato che la spinta di Archimede dipenda dalla densità dell'oggetto immerso, ma la legge di Archimede ($S=\\rho_{liquido}\\, g\\, V_{immerso}$) dipende solo dalla densità del LIQUIDO spostato e dal volume immerso, non dal materiale della sfera: a parità di raggio (quindi di volume), la spinta è identica.",
-            "1": "Errore concettuale molto comune: si pensa che un oggetto più denso 'sposti più liquido', ma a parità di raggio le due sfere hanno esattamente lo stesso volume, quindi spostano la stessa quantità di olio."
+            "2": "Classica trappola concettuale: si confonde la variazione di energia potenziale e cinetica con la variazione dell'energia meccanica totale, che in assenza di attrito rimane rigorosamente costante lungo tutta la traiettoria"
           }
         },
         {
           "id": "FIS_03",
-          "testo": "Un gas ideale si trova inizialmente alla temperatura di $27^\\circ\\text{C}$ all'interno di un contenitore deformabile. Se il gas viene riscaldato a pressione costante (trasformazione isobarica) fino a raddoppiare il suo volume originario, quale temperatura finale avrà raggiunto?",
+          "testo": "Un motore termico ideale compie un ciclo di Carnot lavorando tra due sorgenti di calore rispettivamente alla temperatura di $127^\\circ\\text{C}$ (sorgente calda) e di $27^\\circ\\text{C}$ (sorgente fredda). Qual è il rendimento massimo teorico di questo motore?",
           "immagine_url": null,
           "opzioni": [
-            "$327^\\circ\\text{C}$",
-            "$300^\\circ\\text{C}$",
-            "$54^\\circ\\text{C}$",
-            "$127^\\circ\\text{C}$",
-            "$600^\\circ\\text{C}$"
+            "25%",
+            "79%",
+            "21%",
+            "50%",
+            "75%"
           ],
           "indice_corretto": 0,
           "argomento": "Termodinamica",
           "trappole": {
-            "2": "Errore molto frequente: hai raddoppiato direttamente la temperatura in gradi Celsius ($27^\\circ\\text{C} \\times 2 = 54^\\circ\\text{C}$). La legge $V \\propto T$ vale solo con la temperatura assoluta (Kelvin): bisogna prima convertire $27^\\circ\\text{C}=300\\text{ K}$, raddoppiare a $600\\text{ K}$, e solo alla fine riconvertire in Celsius ($327^\\circ\\text{C}$).",
-            "4": "Hai calcolato correttamente la temperatura assoluta finale ($600\\text{ K}$), ma hai dimenticato di riconvertirla in gradi Celsius, riportando il valore in Kelvin come se fosse già in Celsius."
+            "1": "Errore frequente: hai usato la formula corretta per il rendimento ma non hai trasformato le temperature nella scala Kelvin"
           }
         },
         {
           "id": "FIS_04",
-          "testo": "Una bacchetta di plastica carica negativamente viene avvicinata, senza che vi sia contatto fisico, a una sfera conduttrice isolata ed elettricamente neutra. Cosa si osserva dal punto di vista elettrostatico?",
+          "testo": "Si consideri la reazione di combustione completa del propano (un idrocarburo gassoso) non bilanciata: $$\\text{C}_3\\text{H}_8 + \\text{O}_2 \\rightarrow \\text{CO}_2 + \\text{H}_2\\text{O}$$. Quali sono i coefficienti stechiometrici che bilanciano correttamente la reazione nel rispettivo ordine di comparsa?",
           "immagine_url": null,
           "opzioni": [
-            "La sfera viene respinta dalla bacchetta a causa del fenomeno dell'induzione",
-            "La sfera viene attratta dalla bacchetta a causa dell'induzione elettrostatica",
-            "Non si osserva alcuna interazione poiché la sfera conduttrice è neutra",
-            "Si genera un flusso continuo di elettroni che si disperde nell'aria circostante",
-            "La sfera si carica istantaneamente e in modo permanente di segno negativo"
+            "1, 3, 3, 4",
+            "1, 5, 3, 4",
+            "2, 10, 6, 8",
+            "1, 4, 3, 4",
+            "1, 5, 3, 8 "
           ],
           "indice_corretto": 1,
-          "argomento": "Elettromagnetismo",
+          "argomento": "Chimica generale",
           "trappole": {
-            "2": "Errore concettuale molto diffuso: si pensa che un oggetto neutro non possa interagire elettricamente. In realtà la carica avvicinata induce una separazione delle cariche nel conduttore (induzione elettrostatica), generando un'attrazione netta anche senza contatto.",
-            "0": "Hai applicato meccanicamente la regola 'cariche dello stesso segno si respingono', ma qui la sfera è neutra, non carica negativamente: l'induzione fa avvicinare le cariche positive del conduttore verso la bacchetta, producendo attrazione, non repulsione."
           }
         },
         {
