@@ -360,7 +360,7 @@ if "mostra_dialog_avanzamento" not in st.session_state:
     st.session_state.mostra_dialog_avanzamento = False
 
 
-@st.dialog("Conferma")
+@st.dialog("Conferma", dismissible=False)
 def conferma_avanzamento_dialog():
     idx_corrente = st.session_state.sezione_attuale_idx
     ultima_sezione = idx_corrente >= len(sezioni) - 1
@@ -428,7 +428,7 @@ def esegui_logout():
     st.rerun()
 
 
-@st.dialog("Conferma uscita")
+@st.dialog("Conferma uscita", dismissible=False)
 def conferma_uscita_dialog():
     st.write(
         "Sei sicuro di voler uscire? Il progresso della simulazione attuale "
@@ -618,7 +618,30 @@ if st.session_state.test_completato:
 # SCHERMATA 2: SVOLGIMENTO TEST
 # ---------------------------------------------------------
 else:
-    st_autorefresh(interval=1000, key="timer_autorefresh")
+    # NOTA SUL BUG DELLE FINESTRE MODALI: st_autorefresh forza un rerun
+    # completo ogni secondo per aggiornare il timer. Se un dialog di
+    # conferma (uscita o passaggio di sezione) è aperto, ogni rerun
+    # ripete la chiamata alla funzione del dialog (perché il flag in
+    # session_state resta True), che quindi si "ri-genera" da capo ogni
+    # secondo: da qui il lampeggio. Inoltre, se l'utente chiude il dialog
+    # cliccando fuori, questa è un'azione solo lato client di cui il
+    # nostro codice Python non si accorge: il flag resta True, quindi al
+    # tick successivo il dialog riappare comunque.
+    #
+    # La soluzione è sospendere il tick del timer finché un dialog di
+    # conferma è aperto: senza rerun periodici, il dialog resta esattamente
+    # come l'utente lo lascia (aperto finché non sceglie un'opzione, o
+    # chiuso se clicca fuori) invece di essere ridisegnato ogni secondo.
+    # Il tempo reale continua comunque a scorrere in background (si basa
+    # su un timestamp assoluto, non sui rerun), quindi il conto alla
+    # rovescia resta corretto anche se il display non si aggiorna per i
+    # pochi secondi in cui l'utente sta decidendo.
+    dialog_di_conferma_aperto = (
+        st.session_state.get("mostra_dialog_uscita")
+        or st.session_state.get("mostra_dialog_avanzamento")
+    )
+    if not dialog_di_conferma_aperto:
+        st_autorefresh(interval=1000, key="timer_autorefresh")
 
     idx_attuale = st.session_state.sezione_attuale_idx
     sezione_corrente = sezioni[idx_attuale]
