@@ -108,7 +108,7 @@ def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
 # ---------------------------------------------------------
 # Sostituisci "abcde" con il permalink o l'ID del tuo prodotto Gumroad
 # GUMROAD_PRODUCT_PERMALINK = "https://easyphysics101.gumroad.com/l/dummy"
-PRODUCT_ID = "n7Gu-40fE7dmbd-JcGP-Wg=="
+PRODUCT_ID = "Or3qXjttEE-Jrb3Tt_JFCQ=="
 
 # Numero massimo di dispositivi (browser) che possono attivare la stessa licenza.
 MAX_DISPOSITIVI_PER_LICENZA = 3
