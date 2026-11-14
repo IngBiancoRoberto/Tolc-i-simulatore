@@ -106,12 +106,71 @@ def scrolla_in_cima_se_nuova_schermata(identificatore_schermata):
 # ---------------------------------------------------------
 # CONFIGURAZIONE GUMROAD
 # ---------------------------------------------------------
-# Sostituisci "abcde" con il permalink o l'ID del tuo prodotto Gumroad
-# GUMROAD_PRODUCT_PERMALINK = "https://easyphysics101.gumroad.com/l/dummy"
-PRODUCT_ID = "Or3qXjttEE-Jrb3Tt_JFCQ=="
+# Questo file è condiviso tra le due app (TOLC-I e TOLC-E): il codice è
+# identico, cambiano solo i VALORI di queste tre costanti a seconda di
+# quale simulatore stai facendo girare. Deve sbloccarsi per chiunque abbia
+# una licenza valida per UNO qualsiasi di questi casi:
+#   1) il prodotto nativo di QUESTA app (PRODOTTO_NATIVO_ID), con
+#      qualunque variante acquistata
+#   2) l'ALTRO simulatore (PRODOTTO_ALTRO_ID), ma SOLO se acquistato
+#      scegliendo la variante/opzione "combo" che include anche questa app
+#      (stesso prodotto Gumroad, stesso product_id: cambia solo la
+#      variante scelta in fase di acquisto)
+#   3) un eventuale prodotto Gumroad a sé stante "Bundle TOLC-I + TOLC-E"
+#      (PRODOTTO_BUNDLE_ID), con il proprio product_id indipendente,
+#      uguale nei due deployment
+#
+# Sostituisci i placeholder qui sotto con i product_id reali dei tuoi
+# prodotti Gumroad (li trovi nella pagina "Edit product" > "Advanced
+# settings" di ciascun prodotto, oppure nella risposta dell'API verify).
+#
+# Esempio deployment TOLC-I: PRODOTTO_NATIVO_ID = id di TOLC-I, PRODOTTO_ALTRO_ID = id di TOLC-E
+# Esempio deployment TOLC-E: PRODOTTO_NATIVO_ID = id di TOLC-E, PRODOTTO_ALTRO_ID = id di TOLC-I
+PRODOTTO_NATIVO_ID = "Or3qXjttEE-Jrb3Tt_JFCQ=="    # TOLC-I     # Prodotto nativo di QUESTA app
+PRODOTTO_ALTRO_ID = "1OuZj-n733R1FUyfly00aQ=="       # TOLC-E   # L'altro simulatore (sblocca questa app solo con la variante combo)
+PRODOTTO_BUNDLE_ID = "INSERISCI_QUI_PRODUCT_ID_BUNDLE"     # Prodotto Gumroad a sé stante "Bundle TOLC-I + TOLC-E" (se/quando lo crei)
 
-# Numero massimo di dispositivi (browser) che possono attivare la stessa licenza.
+# Testo (case-insensitive) che deve comparire nel campo "variants" restituito
+# da Gumroad per riconoscere che, acquistando l'ALTRO simulatore, è stata
+# scelta l'opzione/variante che include anche questa app. Questo valore va
+# allineato al nome esatto che darai a quella variante su Gumroad (es. se la
+# chiami "Combo TOLC-I + TOLC-E", lascialo così; se la chiami diversamente,
+# aggiorna questa stringa di conseguenza).
+PAROLA_CHIAVE_VARIANTE_COMBO = "combo"
+
+# Regole di accesso per QUESTA app: ogni regola è una coppia
+# (product_id, parola_chiave_variante_richiesta). Se la seconda voce è
+# None, basta che la licenza sia valida per quel product_id. Se è
+# valorizzata, la licenza deve ANCHE avere quella parola chiave nel campo
+# "variants" della risposta Gumroad. Le regole vengono provate in ordine.
+# (Quante app sblocca la licenza NON è definito qui: viene calcolato dopo
+# la verifica, perché dipende anche dalla variante realmente acquistata.)
+#
+# NOTA: la terza regola resta innocua finché non crei davvero, sul
+# prodotto "altro", una variante il cui nome contiene la parola chiave
+# combo: senza quella variante nessuna licenza la conterrà mai, quindi la
+# regola semplicemente non scatta mai.
+REGOLE_ACCESSO_APP = [
+    (PRODOTTO_NATIVO_ID, None),
+    (PRODOTTO_BUNDLE_ID, None),
+    (PRODOTTO_ALTRO_ID, PAROLA_CHIAVE_VARIANTE_COMBO),
+]
+
+# Numero massimo di DISPOSITIVI FISICI che possono attivare la stessa licenza.
 MAX_DISPOSITIVI_PER_LICENZA = 3
+
+# PERCHÉ QUESTO NUMERO SERVE: il contatore "uses" di Gumroad è legato al
+# product_id, mentre il cookie che riconosce un browser già registrato è
+# legato al dominio della singola app Streamlit. Una licenza che sblocca
+# DUE app (bundle, oppure combo) fa sì che uno stesso dispositivo fisico,
+# visitando entrambe le app, non trovi mai il cookie dell'altra (dominio
+# diverso) e quindi consumi un "uso" separato in ciascuna — 2 "usi" per 1
+# solo dispositivo reale. Senza correggere il limite, un cliente bundle/
+# combo avrebbe perciò a disposizione solo la METÀ dei dispositivi veri
+# previsti. La correzione moltiplica il limite per il numero di app che
+# QUELLA specifica licenza sblocca (calcolato in
+# verifica_licenza_su_piu_prodotti dopo la verifica), cosi che il
+# conteggio torni a rappresentare dispositivi reali.
 
 # Nome del cookie usato per riconoscere un dispositivo già registrato.
 COOKIE_DEVICE_ID = "tolc_device_id"
@@ -148,11 +207,70 @@ def verifica_licenza_gumroad(product_id: str, license_key: str, increment_uses_c
                 # Gumroad (non dentro "purchase"). Conta quante volte la
                 # licenza è stata verificata con increment_uses_count=true.
                 "uses": data.get("uses", 0),
+                # Elenco (stringa separata da virgole) delle varianti/opzioni
+                # scelte in fase di acquisto, es. "Combo TOLC-I + TOLC-E".
+                # Serve a distinguere, su un prodotto che vende più
+                # varianti, quale opzione è stata effettivamente comprata.
+                "variants": purchase.get("variants", ""),
             }
         else:
             return {"success": False, "message": "Chiave di licenza non valida."}
     except Exception as e:
         return {"success": False, "message": f"Errore di connessione: {e}"}
+
+
+def verifica_licenza_su_piu_prodotti(regole_prodotti: list, license_key: str, increment_uses_count: bool = True) -> dict:
+    """
+    Prova la license key su più "regole di accesso" (product_id + eventuale
+    parola chiave di variante richiesta), in ordine, e restituisce il
+    primo risultato positivo. Questo permette a UNA stessa app di
+    accettare licenze provenienti da prodotti Gumroad diversi (prodotto
+    singolo, bundle, oppure lo stesso prodotto dell'altra app ma solo se
+    acquistato con la variante "combo" giusta).
+
+    Il risultato restituito include:
+      - "product_id_abbinato": il product_id su cui la licenza è risultata
+        valida, per sapere su QUALE prodotto incrementare poi il contatore
+        utilizzi (sempre e solo quello giusto, mai gli altri);
+      - "numero_app_sbloccate": quante app (domini Streamlit) sblocca
+        questa licenza, da usare per tarare il limite dispositivi (vedi
+        nota "PERCHÉ QUESTO NUMERO SERVE" sopra).
+    """
+    ultimo_risultato = {"success": False, "message": "Chiave di licenza non valida."}
+    for product_id, parola_chiave_variante in regole_prodotti:
+        if not product_id or product_id.startswith("INSERISCI_QUI"):
+            continue  # placeholder non ancora configurato: salta la regola
+        risultato = verifica_licenza_gumroad(product_id, license_key, increment_uses_count=increment_uses_count)
+        if not risultato["success"]:
+            ultimo_risultato = risultato
+            continue
+        if parola_chiave_variante:
+            variante_acquistata = (risultato.get("variants") or "").lower()
+            if parola_chiave_variante.lower() not in variante_acquistata:
+                # La licenza è valida per quel prodotto, ma senza la
+                # variante richiesta non sblocca questa app: proviamo la
+                # prossima regola invece di accettarla.
+                ultimo_risultato = {
+                    "success": False,
+                    "message": "Questa licenza non include l'accesso a questa app (manca l'opzione combo).",
+                }
+                continue
+        # Quante app sblocca questa licenza: 2 se è il bundle oppure se è
+        # stata acquistata con la variante combo (anche sul prodotto
+        # NATIVO: chi compra TOLC-E combo e apre l'app TOLC-E sblocca
+        # comunque 2 app), altrimenti 1. Va calcolato qui, e non scritto
+        # nelle regole, perché sullo stesso product_id lo stesso contatore
+        # "uses" è condiviso dalle due app: se i due deployment lo
+        # confrontassero con limiti diversi, l'utente verrebbe bloccato in
+        # una delle due pur avendo pochi dispositivi.
+        variante_acquistata = (risultato.get("variants") or "").lower()
+        acquistata_come_combo = PAROLA_CHIAVE_VARIANTE_COMBO.lower() in variante_acquistata
+        numero_app_sbloccate = 2 if (product_id == PRODOTTO_BUNDLE_ID or acquistata_come_combo) else 1
+
+        risultato["product_id_abbinato"] = product_id
+        risultato["numero_app_sbloccate"] = numero_app_sbloccate
+        return risultato
+    return ultimo_risultato
 
 
 # ---------------------------------------------------------
@@ -193,13 +311,24 @@ if not st.session_state.licenza_valida:
                 with st.spinner("Verifica licenza in corso con Gumroad..."):
                     # Passo 1: verifichiamo la licenza SENZA incrementare il
                     # contatore di utilizzi, solo per controllare che sia
-                    # valida e vedere quanti dispositivi sono già registrati.
-                    risultato = verifica_licenza_gumroad(PRODUCT_ID, user_key, increment_uses_count=False)
+                    # valida (su uno qualsiasi dei prodotti che sbloccano
+                    # questa app) e vedere quanti dispositivi sono già
+                    # registrati SU QUEL prodotto specifico.
+                    risultato = verifica_licenza_su_piu_prodotti(REGOLE_ACCESSO_APP, user_key, increment_uses_count=False)
 
                 if not risultato["success"]:
                     st.error(risultato["message"])
                 else:
                     device_id_esistente = cookie_manager.get(cookie=COOKIE_DEVICE_ID)
+
+                    # Il limite va moltiplicato per il numero di app che QUESTA
+                    # licenza sblocca (1 per un prodotto singolo, 2 per bundle/
+                    # combo): vedi la nota "PERCHÉ QUESTO NUMERO SERVE" nella
+                    # sezione di configurazione Gumroad. Senza questo fattore, chi usa una
+                    # licenza bundle/combo su entrambe le app vedrebbe il
+                    # proprio limite reale di dispositivi dimezzato, perché
+                    # ogni dispositivo consuma un "uso" separato per app.
+                    limite_effettivo = MAX_DISPOSITIVI_PER_LICENZA * risultato["numero_app_sbloccate"]
 
                     if device_id_esistente:
                         # Questo browser ha già un cookie: dispositivo già
@@ -208,7 +337,7 @@ if not st.session_state.licenza_valida:
                         st.success(f"Bentornato! Licenza attivata per: {risultato.get('email')}")
                         time.sleep(1)
                         st.rerun()
-                    elif risultato["uses"] >= MAX_DISPOSITIVI_PER_LICENZA:
+                    elif risultato["uses"] >= limite_effettivo:
                         # Dispositivo mai visto su questo browser, ma il
                         # limite di dispositivi per questa licenza è già raggiunto.
                         st.error(
@@ -220,8 +349,15 @@ if not st.session_state.licenza_valida:
                     else:
                         # C'è ancora spazio: registriamo il nuovo dispositivo
                         # incrementando davvero il contatore su Gumroad...
+                        # IMPORTANTE: incrementiamo SOLO sul product_id già
+                        # individuato al passo precedente (risultato["product_id_abbinato"]),
+                        # non su tutte le regole, altrimenti rischieremmo di
+                        # consumare "utilizzi" su prodotti diversi da quello
+                        # realmente posseduto dall'utente.
                         with st.spinner("Registrazione nuovo dispositivo..."):
-                            registrazione = verifica_licenza_gumroad(PRODUCT_ID, user_key, increment_uses_count=True)
+                            registrazione = verifica_licenza_gumroad(
+                                risultato["product_id_abbinato"], user_key, increment_uses_count=True
+                            )
 
                         if not registrazione["success"]:
                             st.error(registrazione["message"])
